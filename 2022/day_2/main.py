@@ -13,44 +13,31 @@
 # Y -> Need to draw
 # Z -> Need to win
 
-shape_points_list = {
-    'X': 1,
-    'Y': 2,
-    'Z': 3,
-}
-
 games = open(0).read().splitlines()
 
 def part_one():
     points = 0
     for game in games:
         opponent, you = game.split()
-        round_shape_points = shape_points_list[you]
-        game_points = 0
         if you == 'X': # Rock
+            points += 1
             if opponent == 'A': # Rock
-                game_points = 3 # Draw
-            elif opponent == 'B': # Paper
-                game_points = 0 # Lose
+                points += 3 # Draw
             elif opponent == 'C': # Scissors
-                game_points = 6 # Win
+                points += 6 # Win
         elif you == 'Y': # Paper
+            points += 2
             if opponent == 'A': # Rock
-                game_points = 6 # Win
+                points += 6 # Win
             elif opponent == 'B': # Paper
-                game_points = 3 # Draw
-            elif opponent == 'C': # Scissors
-                game_points = 0 # Lose
+                points += 3 # Draw
         elif you == 'Z': # Scissors
-            if opponent == 'A': # Rock
-                game_points = 0 # Lose
-            elif opponent == 'B': # Paper
-                game_points = 6 # Win
+            points += 3
+            if opponent == 'B': # Paper
+                points += 6 # Win
             elif opponent == 'C': # Scissors
-                game_points = 3 # Draw
-
-        points += (game_points + round_shape_points)
-    
+                points += 3 # Draw
+        
     return points
 
 
@@ -58,40 +45,27 @@ def part_two():
     points = 0
     for game in games:
         opponent, you = game.split()
-        game_points = 0
-        shape_points = 0
         if opponent == 'A': # Rock
             if you == 'X': # Need to lose
-                game_points = 0
-                shape_points = shape_points_list['Z']
+                points += 0 + 3
             elif you == 'Y': # Need to draw
-                game_points = 3
-                shape_points = shape_points_list['X']
+                points += 3 + 1
             elif you == 'Z': # Need to win
-                game_points = 6
-                shape_points = shape_points_list['Y']
+                points += 6 + 2
         elif opponent == 'B': # Paper
             if you == 'X': # Need to lose
-                game_points = 0
-                shape_points = shape_points_list['X']
+                points += 0 + 1
             elif you == 'Y': # Need to draw
-                game_points = 3
-                shape_points = shape_points_list['Y']
+                points += 3 + 2
             elif you == 'Z': # Need to win
-                game_points = 6
-                shape_points = shape_points_list['Z']
+                points += 6 + 3
         elif opponent == 'C': # Scissors
             if you == 'X': # Need to lose
-                game_points = 0
-                shape_points = shape_points_list['Y']
+                points += 0 + 2
             elif you == 'Y': # Need to draw
-                game_points = 3
-                shape_points = shape_points_list['Z']
+                points += 3 + 3
             elif you == 'Z': # Need to win
-                game_points = 6
-                shape_points = shape_points_list['X']
-                
-        points += (game_points + shape_points)
+                points += 6 + 1
         
     return points
                 
