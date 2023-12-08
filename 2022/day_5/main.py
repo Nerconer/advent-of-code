@@ -1,3 +1,5 @@
+import re
+
 input = open(0).read().split('\n\n')
 
 number_of_stacks = int(input[0].split('\n')[-1].split()[-1])
@@ -9,19 +11,16 @@ for row in input[0].splitlines()[0:-1]:
     for index, elem in enumerate(range(0, len(row), 4)):
         if row[elem:elem+4] != '    ' and row[elem:elem+4] != '   ':
             stacks[index].append(row[elem:elem+4].replace('[', '').replace(']', ''))
-    
+
 for stack in stacks:
     stack.reverse()
-    
+      
 stacks_part_two = [x[:] for x in stacks]
-    
 commands = input[1].splitlines()
 
 def part_one() -> str:
     for command in commands:
-        m = int(command.split()[1])
-        f = int(command.split()[3])
-        t = int(command.split()[5])
+        m, f, t = map(int, re.findall('\\d+', command))
         
         while(m):
             val = stacks[f-1].pop().strip()
@@ -36,9 +35,7 @@ def part_one() -> str:
 
 def part_two() -> str:
     for command in commands:
-        m = int(command.split()[1])
-        f = int(command.split()[3])
-        t = int(command.split()[5])
+        m, f, t = map(int, re.findall('\\d+', command))
         
         arr = []
         while(m):
