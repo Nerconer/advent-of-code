@@ -21,8 +21,11 @@ response = requests.get(url, cookies={'session': cookie_session})
 if not os.path.exists(f'./{year}/day_{day}'):
     print(f'Creating folder for day {day}...')
     os.makedirs(f'./{year}/day_{day}')
-    # create empty file main.py
+    # Create empty file main.py
     open(f'./{year}/day_{day}/main.py', 'a').close()
+    # Create empty file test.txt
+    open(f'./{year}/day_{day}/test.txt', 'a').close()
+    
 else:
     print(f'Folder for day {day} already exists.')
 
