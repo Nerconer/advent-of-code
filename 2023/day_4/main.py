@@ -1,5 +1,4 @@
-file = open(0).read()
-lines = file.strip().splitlines()
+lines = open(0).read().strip().splitlines()
 
 # Part 1
 total_points = 0
@@ -26,7 +25,3 @@ total_scratch_cards = sum(card_list)
     
 print(f'Part 1: {total_points}')
 print(f'Part 2: {total_scratch_cards}')
-
-# Aliases
-# aos to check againt full input.txt file
-# aot to check againt test.txt file

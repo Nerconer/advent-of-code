@@ -1,11 +1,6 @@
-def read_input_file(input_file: str)->list[str]:
-    with open(input_file, 'r') as f:
-        input_data = f.read().splitlines()
-    return input_data
+input_data = open(0).read().strip().splitlines()
 
-def part_one(input_file: str)-> int:
-    input_data = read_input_file(input_file)
-    
+def part_one()-> int:
     total_sum = 0
     
     for line in input_data:
@@ -30,9 +25,7 @@ def part_one(input_file: str)-> int:
     
     return total_sum
 
-def part_two(input_file: str)-> int:
-    input_data = read_input_file(input_file)
-    
+def part_two()-> int:
     total_sum = 0
     
     numbers = {
@@ -88,11 +81,6 @@ def part_two(input_file: str)-> int:
     return total_sum
 
 
-if __name__ == '__main__':
-    input_file = './input.txt'
-    
-    print(f"{'='*10} Part 1 {'='*10}")
-    print(part_one(input_file))
-    
-    print(f"{'='*10} Part 2 {'='*10}")
-    print(part_two(input_file))
+if __name__ == '__main__':    
+    print(f'Part 1: {part_one()}')
+    print(f'Part 2: {part_two()}')

@@ -1,0 +1,12 @@
+import subprocess
+import re
+import os
+import sys
+from collections import Counter, deque
+
+def manhattan_distance(p1, p2):
+    return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
+
+def aoc(data, part=1):
+    print(f'Part {part}: {data}')
+    subprocess.run("pbcopy", text=True, input=str(data))

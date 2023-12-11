@@ -1,13 +1,8 @@
 from math import prod
 
-def read_input_file(input_file: str):
-    with open(input_file, 'r') as f:
-        input_data = f.read().splitlines()
-    return input_data
+input_data = open(0).read().strip().splitlines()
 
-def part_one(input_file: str) -> int:
-    input_data = read_input_file(input_file)
-    
+def part_one() -> int:    
     cubes_limit = {
         "red": 12,
         "green": 13,
@@ -17,7 +12,6 @@ def part_one(input_file: str) -> int:
     sum_ids = 0
     
     for game in input_data:
-
         game_id = game.split(':')[0].replace('Game ', '')
         game = game.split(':')[1].strip()
         game_sets = game.split(';')
@@ -46,14 +40,10 @@ def part_one(input_file: str) -> int:
     return sum_ids
 
 
-def part_two(input_file: str) -> int:
-    input_data = read_input_file(input_file)
-    
+def part_two() -> int:    
     total_sum = 0
     
     for game in input_data:
-
-        game_id = game.split(':')[0].replace('Game ', '')
         game = game.split(':')[1].strip()
         game_sets = game.split(';')
         
@@ -79,12 +69,6 @@ def part_two(input_file: str) -> int:
     return total_sum
 
 
-
 if __name__ == '__main__':
-    input_file = './input.txt'
-    
-    print(f"{'='*10} Part 1 {'='*10}")
-    print(part_one(input_file))
-    
-    print(f"{'='*10} Part 2 {'='*10}")
-    print(part_two(input_file))
+    print(f'Part 1: {part_one()}')
+    print(f'Part 2: {part_two()}')

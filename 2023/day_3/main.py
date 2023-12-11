@@ -1,12 +1,7 @@
-def read_input_file(input_file: str):
-    with open(input_file, 'r') as f:
-        input_data = f.read().strip().splitlines()
-    return input_data
 
+input_data = open(0).read().strip().splitlines()
 
-def solve(input_file: str) -> tuple[int, int]:
-    input_data = read_input_file(input_file)
-        
+def solve() -> tuple[int, int]:
     total_sum = 0
     total_gear_ratios = 0
     
@@ -122,12 +117,7 @@ def solve(input_file: str) -> tuple[int, int]:
 
 
 if __name__ == '__main__':
-    input_file = './input.txt'
-    
-    total_sum, total_gear_ratios = solve(input_file)
+    total_sum, total_gear_ratios = solve()
         
-    print(f"{'='*10} Part 1 {'='*10}")
-    print(total_sum)
-    
-    print(f"{'='*10} Part 2 {'='*10}")
-    print(total_gear_ratios)
+    print(f'Part 1: {total_sum}')
+    print(f'Part 2: {total_gear_ratios}')
